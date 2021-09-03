@@ -1,19 +1,56 @@
-import Head from 'next/head'
-import React from 'react'
-import ReactPlayer from "react-player"
-import styles from './app.module.css'
+import Head from 'next/head';
+import React, { Component } from 'react';
+import ReactPlayer from "react-player";
+import styles from './app.module.css';
+
+// Artist name and track list, tracks associated with embed link for track to add
+var artist = "Ando Rhode";
+var tracks = {'Nautical Prod. Ando Rhode': "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1097918173%3Fsecret_token%3Ds-KoIzawWyTGp&color=%23333AAB&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false",
+              'Time To Think Prod. Ando Rhode': ""};
+
+class SongSoundCloudPlayer extends Component {
+  // Class to hold default vars for various soundcloud player settings
+  // Fields for specifying track id, artist name, and song name
+  // Also height/width defaults can be altered to view of player on site
+
+  constructor(song_link, artist_name, song_title) { 
+    super(song_link, artist_name, song_title);
+
+    this.song_link = song_link;
+    this.artist_name = artist_name;
+    this.song_title = song_title;
+    this.player_feature_specs = {};
+    this.player_features = ['width', 
+                            'height', 
+                            'visual',
+                            'comments',
+                            'tracer_color']
+  }
+
+  // Set specified values/defaults for each feature in player_features
+  songPlayerSetup() {
+    
+
+  }
+
+
+  render() {
+    return;
+  }
+}
 
 export default function Home() {
+
   return (
     <div className="container">
       <Head>
         <title>Shop Ando</title>
-        <link rel="icon" href="/wave_form_square.png" />
+        <link rel="icon" href="/wave_form.png" />
       </Head>
       
       <main>
         <h1 className="title">
-          INSTRUMENTAL
+          instrumentals
         </h1>
         {/*
         <div className="grid">
@@ -67,7 +104,7 @@ export default function Home() {
                   scrolling="no" 
                   frameBorder="no" 
                   allow="autoplay" 
-                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1023359731%3Fsecret_token%3Ds-lHaXT8nqITD&color=%23333AAB&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false">
+                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1023359731%3Fsecret_token%3Ds-lHaXT8nqITD&color=%23333AAB&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=false">
           </iframe>
           <div className={styles.soundcloudplayer}>
             <a href="https://soundcloud.com/andorhode" title="Ando Rhode" target="_blank" style={{color: "black", textDecoration: "none"}}>
